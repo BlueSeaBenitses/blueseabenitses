@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Blue Sea Benitses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0077ff;
+      --primary-dark: #005ec4;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --card-bg: rgba(255, 255, 255, 0.96);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('benitses.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .logo {
+      width: 240px;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio {
+      font-size: 1.05rem;
+      color: #333;
+      margin-bottom: 1.8rem;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 0.9rem 1.1rem;
+      border-radius: 12px;
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .link:hover,
+    .link:focus {
+      background: var(--primary-dark);
+    }
+
+    .link img.icon {
+      height: 22px;
+      margin-right: 10px;
+    }
+
+    .lang-selector {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .lang-selector img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.2s ease;
+      border-radius: 50%;
+      border: 2px solid transparent;
+    }
+
+    .lang-selector img:hover,
+    .lang-selector img.active {
+      opacity: 1;
+      border-color: var(--primary);
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 180px;
+      }
+
+      .bio {
+        font-size: 1rem;
+      }
+
+      .link {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .lang-selector img {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Blue Sea Benitses Logo" class="logo" />
+
+    <p class="bio" id="bio"></p>
+
+    <a href="https://wubook.net/nneb/bk/?ep=973cdd56&lang=en&c=EUR" class="link" target="_blank" rel="noopener">
+      🏨 <span id="txt1"></span>
+    </a>
+
+    <a href="https://maps.app.goo.gl/D1qkzSdTGPPJpswk9" class="link" target="_blank" rel="noopener">
+      📍 <span id="txt2"></span>
+    </a>
+
+    <a href="https://wa.me/306972275393" class="link" target="_blank" rel="noopener">
+      <img src="whatsapp.png" alt="WhatsApp" class="icon" /><span id="txt3"></span>
+    </a>
+
+    <a href="viber://chat?number=+306972275393" class="link">
+      <img src="viber.png" alt="Viber" class="icon" /><span id="txt4"></span>
+    </a>
+
+    <a href="tel:+306972275393" class="link">
+      📞 <span id="txt5"></span>
+    </a>
+
+    <a href="mailto:blueseabenitses@gmail.com" class="link">
+      ✉️ <span id="txt6"></span>
+    </a>
+
+    <div class="lang-selector">
+      <img src="flag-gb.png" alt="English" data-lang="en" class="active" />
+      <img src="flag-gr.png" alt="Greek" data-lang="el" />
+      <img src="flag-it.png" alt="Italian" data-lang="it" />
+      <img src="flag-de.png" alt="German" data-lang="de" />
+      <img src="flag-es.png" alt="Spanish" data-lang="es" />
+      <img src="flag-fr.png" alt="French" data-lang="fr" />
+      <img src="flag-ru.png" alt="Russian" data-lang="ru" />
+      <img src="flag-pl.png" alt="Polish" data-lang="pl" />
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        bio: 'Find us, message us, book with us — all in one place.',
+        txt1: 'Book a Room',
+        txt2: 'Find Us on Google Maps',
+        txt3: 'Chat on WhatsApp',
+        txt4: 'Message on Viber',
+        txt5: 'Call Us',
+        txt6: 'Send Email'
+      },
+      el: {
+        bio: 'Βρείτε μας, στείλτε μήνυμα, κάντε κράτηση — όλα εδώ.',
+        txt1: 'Κάντε Κράτηση',
+        txt2: 'Βρείτε μας στο Χάρτη',
+        txt3: 'Συνομιλία στο WhatsApp',
+        txt4: 'Μήνυμα στο Viber',
+        txt5: 'Καλέστε μας',
+        txt6: 'Αποστολή Email'
+      },
+      it: {
+        bio: 'Trova, scrivi, prenota con noi — tutto in un posto.',
+        txt1: 'Prenota una Camera',
+        txt2: 'Trovaci su Google Maps',
+        txt3: 'Chat su WhatsApp',
+        txt4: 'Messaggio su Viber',
+        txt5: 'Chiamaci',
+        txt6: 'Invia Email'
+      },
+      de: {
+        bio: 'Finden Sie uns, senden Sie Nachrichten, buchen Sie bei uns – alles an einem Ort.',
+        txt1: 'Zimmer buchen',
+        txt2: 'Auf Google Maps finden',
+        txt3: 'WhatsApp-Chat',
+        txt4: 'Nachricht auf Viber',
+        txt5: 'Anrufen',
+        txt6: 'E-Mail senden'
+      },
+      es: {
+        bio: 'Encuéntranos, envía mensaje, reserva con nosotros — todo en un solo lugar.',
+        txt1: 'Reservar una Habitación',
+        txt2: 'Encuéntranos en Google Maps',
+        txt3: 'Chat en WhatsApp',
+        txt4: 'Mensaje en Viber',
+        txt5: 'Llámanos',
+        txt6: 'Enviar Correo'
+      },
+      fr: {
+        bio: 'Trouvez-nous, envoyez un message, réservez avec nous — tout au même endroit.',
+        txt1: 'Réserver une chambre',
+        txt2: 'Nous trouver sur Google Maps',
+        txt3: 'Chat sur WhatsApp',
+        txt4: 'Message sur Viber',
+        txt5: 'Appelez-nous',
+        txt6: 'Envoyer un Email'
+      },
+      ru: {
+        bio: 'Найдите нас, напишите нам, забронируйте — всё в одном месте.',
+        txt1: 'Забронировать номер',
+        txt2: 'Найти нас на карте',
+        txt3: 'Чат в WhatsApp',
+        txt4: 'Сообщение в Viber',
+        txt5: 'Позвонить нам',
+        txt6: 'Отправить Email'
+      },
+      pl: {
+        bio: 'Znajdź nas, napisz, zarezerwuj — wszystko w jednym miejscu.',
+        txt1: 'Zarezerwuj pokój',
+        txt2: 'Znajdź nas w Google Maps',
+        txt3: 'Czat na WhatsApp',
+        txt4: 'Wiadomość na Viber',
+        txt5: 'Zadzwoń do nas',
+        txt6: 'Wyślij Email'
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = translations[lang] || translations['en'];
+      document.getElementById('bio').textContent = data.bio;
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById(`txt${i}`).textContent = data[`txt${i}`];
+      }
+      document.querySelectorAll('.lang-selector img').forEach(img => {
+        img.classList.remove('active');
+        if (img.dataset.lang === lang) img.classList.add('active');
+      });
+    }
+
+    function detectUserLanguage() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const langCode = userLang.split('-')[0];
+      const supported = Object.keys(translations);
+      return supported.includes(langCode) ? langCode : 'en';
+    }
+
+    document.querySelectorAll('.lang-selector img').forEach(flag => {
+      flag.addEventListener('click', () => setLanguage(flag.dataset.lang));
+    });
+
+    // Auto-detect language on load
+    setLanguage(detectUserLanguage());
+  </script>
+</body>
+</html>
